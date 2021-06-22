@@ -1,0 +1,108 @@
+
+<html>
+<head>
+<title> Recommendation with Sentiment Analysis </title>	
+
+<style>
+
+ #input1
+ {
+	 margin-top: 40px;
+	 text-align: center;
+	 padding-bottom: 10px;
+	  
+ }
+
+			
+</style>
+
+</head>	
+
+
+	<script 
+
+		type="text/javascript" 
+		src="brython.js">
+
+	</script>
+
+	<script 
+
+		type="text/javascript" 
+		src="brython_stdlib.js">
+
+	</script>	
+
+
+
+<body onload="brython()">
+
+<div>
+	<div id="input1" align="center">
+		<input type="text" id="name" placeholder="Enter Movie id " >
+	</div>
+	
+	<div id="input2" align="center">
+		<button id="btn" onclick="validateForm1()">Submit</button>
+		<button id="clear" onclick="clearFields()">Clear</button>
+	</div>
+
+	<div id="output" align="center">
+		<p id="values"> 
+ 			Recommendation are
+		</p>
+	</div>
+
+</div>
+				
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+var getByID = (id) => document.getElementById(id);
+var clearInput = (ip) => ip.value = '';
+
+clearFields = () => {
+
+	clearInput(getByID('name'));
+	
+};
+
+
+function validateForm1() {
+  var x = getByID('name').value;
+  
+
+  if ((x == "")){
+    alert("Text field is empty");
+    return false;
+  }
+  else{
+	
+  }
+}
+
+</script>
+
+
+
+<script type="text/python">
+
+
+from Recommendation import *
+from browser import document,alert 
+
+def takeid(event):
+
+    mid = document["name"].value
+    reco_names=inputid(mid)
+    document["values"].value=reco_names
+	
+
+document["btn"].bind(click", takeid)
+
+
+
+</script>
